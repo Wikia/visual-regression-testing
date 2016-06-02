@@ -1,21 +1,33 @@
 var assert = require('chai').assert;
 var webdriverio = require('webdriverio');
+var config = require('../config/config');
+var webdrivercss = require('webdrivercss');
 
-describe('my webdriverio tests', function(){
+var testCase = {
+    browser: 'chrome',
+    useMobile: true,
+    group: 'fandom-mocha',
+    url: 'https://fandom.wikia.com'
+};
 
-    var client = {};
+describe('fandom test', function() {
+    var conf, client;
+    before(function() {
+        testCase.name = 'sample';
 
-    before(function(done){
-        client = webdriverio.remote({ desiredCapabilities: {browserName: 'chrome'} });
-        client.init(done);
+        conf = config.loadConfig(testCase);
+
+        client = webdriverio.remote(conf.browser);
+        webdrivercss.init(client, conf.webdrivercss);
     });
 
-    it('Github test',function(done) {
+    it('Fandom Test', function(done) {
         client
-            .url('https://github.com/')
-            .getTitle(function(err, title) {
-                assert(err === undefined);
-                assert.equal(title, 'How people build software · GitHub');
+            .init()
+            .url(testCase.url)
+            .webdrivercss(testCase.group, conf.webdrivercssTestCase, function(err, resp) {
+                assert.equal(0, resp[testCase.name][0].misMatchPercentage, 'Mismatch percentage different than 0');
+                assert.isOk(resp[testCase.name][0].isExactSameImage);
             })
             .call(done);
     });
