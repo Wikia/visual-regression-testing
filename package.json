@@ -4,20 +4,17 @@
   "description": "Visual Regression Testing Framework",
   "main": "index.js",
   "scripts": {
-    "test": "gulp && mocha tests"
+    "test": "node index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Bogna 'bognix' Knychała",
+  "license": "MIT",
   "dependencies": {
+    "chai": "^3.5.0",
     "extend": "^3.0.0",
-    "gulp": "^3.9.1",
+    "mocha": "^2.5.3",
     "path": "^0.12.7",
-    "resemblejs": "^2.2.1",
     "selenium-standalone": "^5.1.0",
     "webdrivercss": "^1.1.10",
     "webdriverio": "2.4.5"
-  },
-  "devDependencies": {
-    "gulp-mocha": "^2.2.0"
   }
 }
