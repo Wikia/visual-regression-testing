@@ -1,11 +1,9 @@
 {
   "name": "vrt",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Visual Regression Testing Framework",
   "main": "index.js",
-  "scripts": {
-    "test": "node index.js"
-  },
+  "directories": ["lib"],
   "author": "Bogna 'bognix' Knychała",
   "license": "MIT",
   "dependencies": {
