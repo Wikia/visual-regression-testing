@@ -3,20 +3,19 @@ var webdriverio = require('webdriverio');
 var config = require('../config/config');
 var webdrivercss = require('webdrivercss');
 
-var testCase = {
-    browser: 'chrome',
-    useMobile: true,
-    group: 'fandom-mocha',
-    url: 'https://fandom.wikia.com'
-};
-
 describe('fandom test', function() {
     var conf, client;
+
     before(function() {
-        testCase.name = 'sample';
+        var testCase = {
+            browser: 'chrome',
+            useMobile: true,
+            group: 'fandom-mocha',
+            url: 'https://fandom.wikia.com',
+            name: 'sample'
+        };
 
         conf = config.loadConfig(testCase);
-
         client = webdriverio.remote(conf.browser);
         webdrivercss.init(client, conf.webdrivercss);
     });
