@@ -4,5 +4,5 @@ module.exports = {
 	driver: require('./lib/driver'),
 	runner: require('./lib/runner'),
 	testcase: require('./lib/testcase'),
-	webdrivercss: require('./lib/testcase')
+	webdrivercss: require('./lib/webdrivercss')
 };
