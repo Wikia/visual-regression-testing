@@ -1,6 +1,6 @@
 {
   "name": "vrt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Visual Regression Testing Framework",
   "main": "index.js",
   "directories": ["lib"],
